@@ -1,0 +1,18 @@
+<ion-view view-title="signUp" name="signUp-view">
+  <ion-content class="padding">
+    <form name="signUpForm" novalidate="">
+      <div class="list list-inset">
+        <label class="item item-input" ng-class="{ 'has-errors' : signUpForm.username.$invalid, 'no-errors' : signUpForm.username.$valid}">
+          <input type="text" name="username" placeholder="Username" ng-model="data.username" required>
+        </label>
+        <label class="item item-input" ng-class="{ 'has-errors' : signUpForm.email.$invalid || signUpForm.email.$error.email, 'no-errors' : !signUpForm.email.$invalid && !signUpForm.email.$error.email}">
+          <input type="email" name="email" placeholder="Email" ng-model="data.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+        </label>
+        <label class="item item-input" ng-class="{ 'has-errors' : signUpForm.password.$invalid, 'no-errors' : signUpForm.password.$valid}">
+          <input type="password" name="password" placeholder="Password" ng-model="data.password" required>
+        </label>
+      </div>
+      <button ng-disabled="signUpForm.$invalid || isLoading" class="button button-block button-positive" ng-click="signUp()">Create</button>
+    </form>
+  </ion-content>
+</ion-view>
