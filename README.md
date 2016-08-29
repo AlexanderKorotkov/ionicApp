@@ -1,1 +1,1 @@
-# ionicSimpleLoginApp
+# ionicApp
