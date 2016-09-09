@@ -33,3 +33,7 @@
 .no-errors {
   border-left: 2px solid green;
 }
+.member-phone{
+  color: inherit;
+  text-decoration: none;
+}

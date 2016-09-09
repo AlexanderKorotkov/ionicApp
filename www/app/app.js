@@ -1,5 +1,5 @@
 "use strict";
-angular.module('app', ['ionic','ngCookies', 'ngMessages'])
+angular.module('app', ['ionic','ngCookies', 'ngMessages','ngFileUpload'])
 .run(function($ionicPlatform, $rootScope, $state, authService) {
 
   $ionicPlatform.ready(function() {
@@ -19,17 +19,19 @@ angular.module('app', ['ionic','ngCookies', 'ngMessages'])
     $rootScope.$on("$stateChangeStart", function (event, toState) {
       if (authService.isAuthenticated() && !toState.data) {
         event.preventDefault();
-        $state.go("tab.dash");
+        $state.go("tab.members");
       } else if (!authService.isAuthenticated() && toState.data) {
         event.preventDefault();
-        $state.go("signUp");
+        $state.go("login");
       }
     });
 
 })
 
-.config(function($stateProvider, $urlRouterProvider,$httpProvider,$ionicConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider,$httpProvider,$ionicConfigProvider, $compileProvider) {
     $ionicConfigProvider.views.maxCache(0);
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|skype|tel):/);
+    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile|ftp):|data:image\//);
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the www can be in.
@@ -41,6 +43,7 @@ angular.module('app', ['ionic','ngCookies', 'ngMessages'])
     url: '/tab',
     abstract: true,
     templateUrl: 'app/tabs.html',
+    controller: 'MainCtrl',
     data: true
   })
 
@@ -68,21 +71,39 @@ angular.module('app', ['ionic','ngCookies', 'ngMessages'])
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.members', {
+      url: '/members',
       views: {
         'tab-chats': {
-          templateUrl: 'app/chats/tab-chats.html',
-          controller: 'ChatsCtrl'
+          templateUrl: 'app/members/membersList.html',
+          controller: 'MembersListCtrl'
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+    .state('tab.memberDetail', {
+      url: '/members/:memberId',
       views: {
         'tab-chats': {
-          templateUrl: 'app/chats/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+          templateUrl: 'app/members/memberDetail.html',
+          controller: 'MemberDetailCtrl'
+        }
+      }
+    })
+    .state('tab.addMember', {
+      url: '/members/addMember',
+      views: {
+        'tab-chats': {
+          templateUrl: 'app/members/addEditMember.html',
+          controller: 'AddMemberCtrl'
+        }
+      }
+    })
+    .state('tab.editMember', {
+      url: '/members/:memberId/editMember',
+      views: {
+        'tab-chats': {
+          templateUrl: 'app/members/addEditMember.html',
+          controller: 'EditMemberCtrl'
         }
       }
     })

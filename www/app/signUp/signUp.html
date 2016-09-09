@@ -2,6 +2,9 @@
   <ion-content class="padding">
     <form name="signUpForm" novalidate="">
       <div class="list list-inset">
+        <label class="item item-input" ng-class="{ 'has-errors' : signUpForm.companyName.$invalid, 'no-errors' : signUpForm.companyName.$valid}">
+          <input type="text" name="companyName" placeholder="companyName" ng-model="data.companyName" required>
+        </label>
         <label class="item item-input" ng-class="{ 'has-errors' : signUpForm.username.$invalid, 'no-errors' : signUpForm.username.$valid}">
           <input type="text" name="username" placeholder="Username" ng-model="data.username" required>
         </label>
@@ -12,7 +15,7 @@
           <input type="password" name="password" placeholder="Password" ng-model="data.password" required>
         </label>
       </div>
-      <button ng-disabled="signUpForm.$invalid || isLoading" class="button button-block button-positive" ng-click="signUp()">Create</button>
+      <button ng-disabled="signUpForm.$invalid" class="button button-block button-positive" ng-click="signUp()">Create</button>
     </form>
   </ion-content>
 </ion-view>

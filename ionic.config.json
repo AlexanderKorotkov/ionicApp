@@ -6,7 +6,7 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "https://still-fjord-48398.herokuapp.com/api"
+      "proxyUrl": "http://localhost:9000/api"
     }
   ]
 }

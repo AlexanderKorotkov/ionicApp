@@ -1,0 +1,49 @@
+<ion-view  view-title={{title}}>
+  <ion-content>
+      <form action="">
+        <div class="list">
+
+          <input type="file" name="photo" ngf-select="onFileSelect($files)" multiple>
+
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">First Name</span>
+            <input type="text" placeholder="John" ng-model="memberData.name">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Last Name</span>
+            <input type="text" placeholder="Suhr" ng-model="memberData.surname">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Email</span>
+            <input type="text" placeholder="john@suhr.com" ng-model="memberData.email">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">position</span>
+            <input type="text" placeholder="Ruby developer" ng-model="memberData.position">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">project</span>
+            <input type="text" placeholder="FixitSukaJoe" ng-model="memberData.project">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">skype</span>
+            <input type="text" placeholder="skype" ng-model="memberData.skype">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">phone</span>
+            <input type="text" placeholder="phone" ng-model="memberData.phone">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">bDay</span>
+            <input type="text" placeholder="bDay" ng-model="memberData.bDay">
+          </label>
+        </div>
+      </form>
+      <button ng-if="!isEdit" class="button button-balanced button-small" ng-click="sendMemeber(memberData)">
+        Submit
+      </button>
+      <button ng-if="isEdit" class="button button-balanced button-small" ng-click="updateMember(memberData)">
+        Update
+      </button>
+  </ion-content>
+</ion-view>

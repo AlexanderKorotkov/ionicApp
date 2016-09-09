@@ -15,7 +15,7 @@ var replaceFiles = ['./www/app/config.js'];
 
 gulp.task('add-proxy', function() {
   return replace({
-    regex: "https://still-fjord-48398.herokuapp.com",
+    regex: "http://node-app-company-manager.44fs.preview.openshiftapps.com",
     replacement: "http://localhost:8100",
     paths: replaceFiles,
     recursive: false,
@@ -26,7 +26,7 @@ gulp.task('add-proxy', function() {
 gulp.task('remove-proxy', function() {
   return replace({
     regex: "http://localhost:8100",
-    replacement: "https://still-fjord-48398.herokuapp.com",
+    replacement: "http://node-app-company-manager.44fs.preview.openshiftapps.com",
     paths: replaceFiles,
     recursive: false,
     silent: false

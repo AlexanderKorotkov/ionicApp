@@ -10,6 +10,7 @@ angular.module("app").factory("authService", function ($http, $cookieStore, $roo
       }
   };
   that.saveIdentity = function () {
+    console.log(identity)
       $window.localStorage.setItem("identity", angular.toJson(identity));
   };
   that.removeIdentity = function () {
@@ -30,7 +31,7 @@ angular.module("app").factory("authService", function ($http, $cookieStore, $roo
       },
       setUserIdentity: function (user) {
           if (user) {
-              identity = user.token;
+              identity = user;
               that.saveIdentity();
               return true;
           }
@@ -44,11 +45,11 @@ angular.module("app").factory("authService", function ($http, $cookieStore, $roo
           that.removeIdentity();
           return true;
       },
-      getAccessToken: function () {
-          return identity ? identity.token.access_token : null;
-      },
       isAuthenticated: function () {
           return identity !== null;
+      },
+      getAuthorizationHeader: function () {
+        return 'Bearer ' + identity ? identity.token : null;
       }
   };
 });
