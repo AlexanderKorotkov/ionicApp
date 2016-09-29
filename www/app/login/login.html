@@ -2,6 +2,9 @@
   <ion-content class="padding">
     <form name="loginForm" novalidate="">
       <div class="list list-inset">
+        <label class="item item-input" ng-class="{ 'has-errors' : loginForm.companyName.$invalid, 'no-errors' : loginForm.companyName.$valid}">
+          <input type="text" name="companyName" placeholder="Company Name" ng-model="user.companyName" required>
+        </label>
         <label class="item item-input" ng-class="{ 'has-errors' : loginForm.username.$invalid, 'no-errors' : loginForm.username.$valid}">
           <input type="text" name="username" placeholder="Username" ng-model="user.username" required>
         </label>

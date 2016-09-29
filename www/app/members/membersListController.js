@@ -4,6 +4,7 @@ angular.module('app')
     $scope.newMember = {};
     $scope.membersService = membersService;
     $scope.membersService.members = [];
+    $scope.currentUser = authService.getUserIdentity().user;
 
     $scope.default_image = 'img/unknown1.png';
     $scope.getImage = function(imageUrl){

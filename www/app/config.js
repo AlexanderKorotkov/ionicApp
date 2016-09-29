@@ -2,8 +2,8 @@
 
 angular.module("app").constant("appConfig", {
         ver: "1.0.0",
-        apiMainUrl: "http://node-app-company-manager.44fs.preview.openshiftapps.com/api",
-        downloadUrl: "http://node-app-company-manager.44fs.preview.openshiftapps.com",
+        apiMainUrl: "http://localhost:8100/api",
+        downloadUrl: "http://localhost:8100",
         apiClient: {
             user: "Ionic",
             secret: "ionicSimpleAppKey"
