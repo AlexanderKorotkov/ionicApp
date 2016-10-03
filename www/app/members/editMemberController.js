@@ -5,7 +5,7 @@ angular.module('app')
     $scope.title = 'Edit member';
     $scope.memberData = {};
     $scope.membersService = membersService;
-    $scope.memberData = membersService.getLocalCharts($stateParams.memberId);
+    $scope.memberData = membersService.getLocalCharts($stateParams.userId);
 
     $scope.onFileSelect = function($files) {
       if($files.length > 0) {
@@ -13,9 +13,10 @@ angular.module('app')
       }
     };
 
+
     $scope.updateMember = function(member) {
       $ionicLoading.show();
-      membersService.updateMember(member, authService.getUserIdentity().companyId, $stateParams.memberId, $scope.file).success(function(result) {
+      membersService.updateMember(member, authService.getUserIdentity().user.companyId, $stateParams.userId, $scope.file).success(function(result) {
         $ionicHistory.goBack();
       }).error(function(data) {
         var alertPopup = $ionicPopup.alert({

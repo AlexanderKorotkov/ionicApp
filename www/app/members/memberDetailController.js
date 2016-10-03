@@ -2,7 +2,7 @@
 angular.module('app')
   .controller('MemberDetailCtrl', function($scope, $stateParams, membersService, $state, authService) {
     $scope.currentUser = authService.getUserIdentity().user;
-    $scope.member = membersService.getLocalCharts($stateParams.memberId);
+    $scope.member = membersService.getLocalCharts($stateParams.userId);
     if(!$scope.member){
       $state.go('tab.members');
       return false

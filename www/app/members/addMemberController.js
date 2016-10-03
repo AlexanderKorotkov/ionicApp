@@ -10,10 +10,9 @@ angular.module('app')
         $scope.file = $files;
       }
     };
-
     $scope.sendMemeber = function(member) {
       $ionicLoading.show();
-      membersService.addMember(member, authService.getUserIdentity().companyId, $scope.file).success(function(result) {
+      membersService.addMember(member, authService.getUserIdentity().user.companyId, $scope.file).success(function(result) {
         $scope.membersService.members.push(result.data);
         $scope.memberData.username = '';
         $ionicHistory.goBack();

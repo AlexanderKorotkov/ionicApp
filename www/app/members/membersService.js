@@ -5,8 +5,9 @@ angular.module('app')
     this.members = [];
 
     this.getLocalCharts = function(memberId) {
+      console.log(this.members)
       for (var i = 0; i < this.members.length; i++) {
-        if (this.members[i]._id === memberId) {
+        if (this.members[i].userId === memberId) {
           return this.members[i];
         }
       }

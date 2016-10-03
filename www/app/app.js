@@ -81,7 +81,7 @@ angular.module('app', ['ionic','ngCookies', 'ngMessages','ngFileUpload'])
       }
     })
     .state('tab.memberDetail', {
-      url: '/members/:memberId',
+      url: '/members/:userId',
       views: {
         'tab-chats': {
           templateUrl: 'app/members/memberDetail.html',
@@ -99,7 +99,7 @@ angular.module('app', ['ionic','ngCookies', 'ngMessages','ngFileUpload'])
       }
     })
     .state('tab.editMember', {
-      url: '/members/:memberId/editMember',
+      url: '/members/:userId/editMember',
       views: {
         'tab-chats': {
           templateUrl: 'app/members/addEditMember.html',

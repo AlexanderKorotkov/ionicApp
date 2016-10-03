@@ -1,6 +1,6 @@
 <ion-view view-title="{{member.name}}">
   <ion-nav-buttons side="right">
-    <button ng-if="currentUser.admin" class="button" ui-sref-active="active" ui-sref="tab.editMember({memberId:member._id})">
+    <button ng-if="currentUser.admin" class="button" ui-sref-active="active" ui-sref="tab.editMember({userId:member.userId})">
       Edit
     </button>
   </ion-nav-buttons>

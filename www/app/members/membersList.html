@@ -9,8 +9,8 @@
       Show Delete?
     </ion-toggle>
     <ion-list show-delete="shouldShowDelete">
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="member in membersService.members" type="item-text-wrap" ui-sref-active="active" ui-sref="tab.memberDetail({memberId:member._id})">
-        <img ng-src="{{getImage(member.imageUrl)}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="member in membersService.members track by $index" type="item-text-wrap" ui-sref-active="active" ui-sref="tab.memberDetail({userId:member.userId})">
+        <img ng-src="{{getImage(member.avatar.imageThumbUrl)}}">
         <h2>{{member.name}}</h2>
         <p>{{member.surname}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>

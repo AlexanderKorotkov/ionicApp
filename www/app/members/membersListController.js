@@ -13,7 +13,7 @@ angular.module('app')
 
 
     $ionicLoading.show();
-    membersService.fetchAllMembers(authService.getUserIdentity().companyId).success(function(result) {
+    membersService.fetchAllMembers($scope.currentUser.companyId).success(function(result) {
       $scope.membersService.members = result.data;
     }).error(function(data) {
       var alertPopup = $ionicPopup.alert({
@@ -25,7 +25,7 @@ angular.module('app')
     });
 
     $scope.remove = function(member) {
-      membersService.removeMember(authService.getUserIdentity().companyId, member).success(function() {
+      membersService.removeMember($scope.currentUser.companyId, member).success(function() {
         $scope.membersService.members.splice($scope.membersService.members.indexOf(member), 1);
       }).error(function(data) {
         var alertPopup = $ionicPopup.alert({
