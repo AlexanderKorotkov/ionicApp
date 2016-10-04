@@ -7,42 +7,42 @@
 
           <label class="item item-input item-stacked-label">
             <span class="input-label">First Name</span>
-            <input type="text" placeholder="John" ng-model="memberData.name">
+            <input type="text" placeholder="John" ng-model="userData.name">
           </label>
           <label class="item item-input item-stacked-label">
             <span class="input-label">Last Name</span>
-            <input type="text" placeholder="Suhr" ng-model="memberData.surname">
+            <input type="text" placeholder="Suhr" ng-model="userData.surname">
           </label>
           <label class="item item-input item-stacked-label">
             <span class="input-label">Email</span>
-            <input type="text" placeholder="john@suhr.com" ng-model="memberData.email">
+            <input type="text" placeholder="john@suhr.com" ng-model="userData.email">
           </label>
           <label class="item item-input item-stacked-label">
             <span class="input-label">position</span>
-            <input type="text" placeholder="Ruby developer" ng-model="memberData.position">
+            <input type="text" placeholder="Ruby developer" ng-model="userData.position">
           </label>
           <label class="item item-input item-stacked-label">
             <span class="input-label">project</span>
-            <input type="text" placeholder="FixitSukaJoe" ng-model="memberData.project">
+            <input type="text" placeholder="FixitSukaJoe" ng-model="userData.project">
           </label>
           <label class="item item-input item-stacked-label">
             <span class="input-label">skype</span>
-            <input type="text" placeholder="skype" ng-model="memberData.skype">
+            <input type="text" placeholder="skype" ng-model="userData.skype">
           </label>
           <label class="item item-input item-stacked-label">
             <span class="input-label">phone</span>
-            <input type="text" placeholder="phone" ng-model="memberData.phone">
+            <input type="text" placeholder="phone" ng-model="userData.phone">
           </label>
           <label class="item item-input item-stacked-label">
             <span class="input-label">bDay</span>
-            <input type="text" placeholder="bDay" ng-model="memberData.bDay">
+            <input type="text" placeholder="bDay" ng-model="userData.bDay">
           </label>
         </div>
       </form>
-      <button ng-if="!isEdit" class="button button-balanced button-small" ng-click="sendMemeber(memberData)">
+      <button ng-if="!isEdit" class="button button-balanced button-small" ng-click="sendUser(userData)">
         Submit
       </button>
-      <button ng-if="isEdit" class="button button-balanced button-small" ng-click="updateMember(memberData)">
+      <button ng-if="isEdit" class="button button-balanced button-small" ng-click="updateUser(userData)">
         Update
       </button>
   </ion-content>

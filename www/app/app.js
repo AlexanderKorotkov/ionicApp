@@ -19,7 +19,7 @@ angular.module('app', ['ionic','ngCookies', 'ngMessages','ngFileUpload'])
     $rootScope.$on("$stateChangeStart", function (event, toState) {
       if (authService.isAuthenticated() && !toState.data) {
         event.preventDefault();
-        $state.go("tab.members");
+        $state.go("tab.users");
       } else if (!authService.isAuthenticated() && toState.data) {
         event.preventDefault();
         $state.go("login");
@@ -71,39 +71,39 @@ angular.module('app', ['ionic','ngCookies', 'ngMessages','ngFileUpload'])
     }
   })
 
-  .state('tab.members', {
-      url: '/members',
+  .state('tab.users', {
+      url: '/users',
       views: {
-        'tab-chats': {
-          templateUrl: 'app/members/membersList.html',
-          controller: 'MembersListCtrl'
+        'tab-users': {
+          templateUrl: 'app/users/usersList.html',
+          controller: 'UsersListCtrl'
         }
       }
     })
-    .state('tab.memberDetail', {
-      url: '/members/:userId',
+    .state('tab.userDetail', {
+      url: '/users/:userId',
       views: {
-        'tab-chats': {
-          templateUrl: 'app/members/memberDetail.html',
-          controller: 'MemberDetailCtrl'
+        'tab-users': {
+          templateUrl: 'app/users/userDetail.html',
+          controller: 'UserDetailCtrl'
         }
       }
     })
-    .state('tab.addMember', {
-      url: '/members/addMember',
+    .state('tab.addUser', {
+      url: '/user/addUser',
       views: {
-        'tab-chats': {
-          templateUrl: 'app/members/addEditMember.html',
-          controller: 'AddMemberCtrl'
+        'tab-users': {
+          templateUrl: 'app/users/addEditUser.html',
+          controller: 'AddUserCtrl'
         }
       }
     })
-    .state('tab.editMember', {
-      url: '/members/:userId/editMember',
+    .state('tab.editUser', {
+      url: '/user/:userId/editUser',
       views: {
-        'tab-chats': {
-          templateUrl: 'app/members/addEditMember.html',
-          controller: 'EditMemberCtrl'
+        'tab-users': {
+          templateUrl: 'app/users/addEditUser.html',
+          controller: 'EditUserCtrl'
         }
       }
     })

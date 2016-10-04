@@ -10,7 +10,7 @@ angular.module('app')
       $ionicLoading.show();
       LoginService.loginUser($scope.user).success(function(result) {
         if(authService.setUserIdentity(result)){
-          $state.go("tab.members");
+          $state.go("tab.users");
           $scope.user = {};
         }
       }).error(function(result) {

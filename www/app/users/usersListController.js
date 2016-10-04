@@ -1,9 +1,9 @@
 'use strict';
 angular.module('app')
-  .controller('MembersListCtrl', function($scope, membersService, $ionicPopup, authService, $ionicLoading) {
-    $scope.newMember = {};
-    $scope.membersService = membersService;
-    $scope.membersService.members = [];
+  .controller('UsersListCtrl', function($scope, usersService, $ionicPopup, authService, $ionicLoading) {
+    $scope.newUser = {};
+    $scope.usersService = usersService;
+    $scope.usersService.users = [];
     $scope.currentUser = authService.getUserIdentity().user;
 
     $scope.default_image = 'img/unknown1.png';
@@ -11,10 +11,9 @@ angular.module('app')
       return imageUrl ? imageUrl :  $scope.default_image;
     };
 
-
     $ionicLoading.show();
-    membersService.fetchAllMembers($scope.currentUser.companyId).success(function(result) {
-      $scope.membersService.members = result.data;
+    usersService.fetchAllUsers($scope.currentUser.companyId).success(function(result) {
+      $scope.usersService.users = result.data;
     }).error(function(data) {
       var alertPopup = $ionicPopup.alert({
         title: 'Something went wrong!',
@@ -24,9 +23,9 @@ angular.module('app')
       $ionicLoading.hide();
     });
 
-    $scope.remove = function(member) {
-      membersService.removeMember($scope.currentUser.companyId, member).success(function() {
-        $scope.membersService.members.splice($scope.membersService.members.indexOf(member), 1);
+    $scope.remove = function(user) {
+      usersService.removeUser($scope.currentUser.companyId, user).success(function() {
+        $scope.usersService.users.splice($scope.usersService.users.indexOf(user), 1);
       }).error(function(data) {
         var alertPopup = $ionicPopup.alert({
           title: 'Something went wrong!',

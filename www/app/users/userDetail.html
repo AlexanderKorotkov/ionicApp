@@ -1,0 +1,32 @@
+<ion-view view-title="{{user.name}}">
+  <ion-nav-buttons side="right">
+    <button ng-if="currentUser.admin" class="button" ui-sref-active="active" ui-sref="tab.editUser({userId:user.userId})">
+      Edit
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="list">
+
+      <div ng-show="user.email" class="item item-icon-left item-icon-right" >
+        <i class="icon ion-email"></i>
+        {{user.email}}
+        <a class="icon user-phone ion-paper-airplane" ng-href="mailto:{{user.email}}">
+        </a>
+      </div>
+
+      <div class="item item-icon-left item-icon-right" >
+        <i class="icon ion-ios-telephone"></i>
+          {{user.phone}}
+          <a class="icon user-phone ion-ios-telephone-outline" ng-href="tel:{{user.phone}}">
+          </a>
+      </div>
+
+      <div class="item item-icon-left item-icon-right" >
+        <i class="icon ion-social-skype"></i>
+        {{user.skype}}
+        <a class="icon user-phone ion-ios-chatbubble-outline" ng-href="skype:{{user.skype}}">
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
