@@ -69,7 +69,24 @@ angular.module('app', ['ionic','ngCookies', 'ngMessages','ngFileUpload'])
         controller: 'DashCtrl'
       }
     }
-  })
+  }).state('tab.changePassword', {
+      url: '/changePassword',
+      views: {
+        'tab-dash': {
+          templateUrl: 'app/changePassword/changePassword.html',
+          controller: 'ChangePasswordCtrl'
+        }
+      }
+    })
+    .state('tab.selectCompany', {
+      url: '/selectCompany',
+      views: {
+        'tab-dash': {
+          templateUrl: 'app/selectCompany/selectCompany.html',
+          controller: 'selectCompanyCtrl'
+        }
+      }
+    })
 
   .state('tab.users', {
       url: '/users',

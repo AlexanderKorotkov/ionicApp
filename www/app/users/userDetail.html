@@ -1,6 +1,6 @@
 <ion-view view-title="{{user.name}}">
   <ion-nav-buttons side="right">
-    <button ng-if="currentUser.admin" class="button" ui-sref-active="active" ui-sref="tab.editUser({userId:user.userId})">
+    <button ng-if="currentUser.currentCompany.isAdmin" class="button" ui-sref-active="active" ui-sref="tab.editUser({userId:user.userId})">
       Edit
     </button>
   </ion-nav-buttons>
@@ -24,7 +24,7 @@
       <div class="item item-icon-left item-icon-right" >
         <i class="icon ion-social-skype"></i>
         {{user.skype}}
-        <a class="icon user-phone ion-ios-chatbubble-outline" ng-href="skype:{{user.skype}}">
+        <a class="icon user-phone ion-ios-chatbubble-outline" ng-href="skype:{{user.skype}}?chat">
         </a>
       </div>
     </div>

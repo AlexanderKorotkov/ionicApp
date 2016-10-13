@@ -2,9 +2,6 @@
   <ion-content class="padding">
     <form name="loginForm" novalidate="">
       <div class="list list-inset">
-        <label class="item item-input" ng-class="{ 'has-errors' : loginForm.companyName.$invalid, 'no-errors' : loginForm.companyName.$valid}">
-          <input type="text" name="companyName" placeholder="Company Name" ng-model="user.companyName" required>
-        </label>
         <label class="item item-input" ng-class="{ 'has-errors' : loginForm.email.$invalid || loginForm.email.$error.email, 'no-errors' : !loginForm.email.$invalid && !loginForm.email.$error.email}">
           <input type="email" name="email" placeholder="Email" ng-model="user.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
         </label>

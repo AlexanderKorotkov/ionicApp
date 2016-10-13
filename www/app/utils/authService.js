@@ -41,6 +41,10 @@ angular.module("app").factory("authService", function ($http, $cookieStore, $roo
       getUserIdentity: function () {
           return identity;
       },
+      updateUserIdentity: function (user) {
+        identity.user = user;
+        $window.localStorage.setItem("identity", angular.toJson(identity));
+      },
       removeUserIdentity: function () {
           that.removeIdentity();
           return true;

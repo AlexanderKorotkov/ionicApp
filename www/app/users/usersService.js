@@ -13,11 +13,11 @@ angular.module('app')
       return null;
     };
 
-    this.addUser = function(user,companyId, file) {
+    this.addUser = function(user, currentCompany, file) {
       return Upload.upload({
-        url: appConfig.apiMainUrl + '/users/'+companyId+'/create',
+        url: appConfig.apiMainUrl + '/users/create',
         method: 'POST',
-        fields:{user :user},
+        fields:{user :user, currentCompany : currentCompany},
         headers: {'authorization': authService.getAuthorizationHeader()},
         file: file
       })

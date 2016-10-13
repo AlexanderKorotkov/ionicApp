@@ -1,16 +1,16 @@
 <ion-view view-title="Company Users">
   <ion-content>
-    <div class="padding" ng-if="currentUser.admin">
+    <div class="padding" ng-if="currentUser.currentCompany.isAdmin">
       <button class="button button-block button-small button-balanced" ui-sref="tab.addUser">
         Add a new User
       </button>
     </div>
-    <ion-toggle ng-show="usersService.users.length > 0 && currentUser.admin" ng-model="shouldShowDelete">
+    <ion-toggle ng-show="usersService.users.length > 0 && currentUser.currentCompany.isAdmin" ng-model="shouldShowDelete">
       Show Delete?
     </ion-toggle>
     <ion-list show-delete="shouldShowDelete">
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="user in usersService.users track by $index" type="item-text-wrap" ui-sref-active="active" ui-sref="tab.userDetail({userId:user.userId})">
-        <img ng-src="{{getImage(user.avatar.imageUrl)}}">
+        <img ng-src="{{getImage(user.avatar.imageThumbUrl)}}">
         <h2>{{user.name}}</h2>
         <p>{{user.surname}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>

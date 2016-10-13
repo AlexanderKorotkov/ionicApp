@@ -12,8 +12,9 @@ angular.module('app')
     };
 
     $ionicLoading.show();
-    usersService.fetchAllUsers($scope.currentUser.companyId).success(function(result) {
+    usersService.fetchAllUsers($scope.currentUser.currentCompany.companyId).success(function(result) {
       $scope.usersService.users = result.data;
+      authService.getUserIdentity()
     }).error(function(data) {
       var alertPopup = $ionicPopup.alert({
         title: 'Something went wrong!',
@@ -24,7 +25,7 @@ angular.module('app')
     });
 
     $scope.remove = function(user) {
-      usersService.removeUser($scope.currentUser.companyId, user).success(function() {
+      usersService.removeUser($scope.currentUser.currentCompany.companyId, user).success(function() {
         $scope.usersService.users.splice($scope.usersService.users.indexOf(user), 1);
       }).error(function(data) {
         var alertPopup = $ionicPopup.alert({

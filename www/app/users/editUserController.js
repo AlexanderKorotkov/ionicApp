@@ -6,6 +6,7 @@ angular.module('app')
     $scope.userData = {};
     $scope.usersService = usersService;
     $scope.userData = usersService.getUserList($stateParams.userId);
+    $scope.currentUser = authService.getUserIdentity().user;
 
     $scope.onFileSelect = function($files) {
       if($files.length > 0) {
@@ -16,7 +17,7 @@ angular.module('app')
 
     $scope.updateUser = function(user) {
       $ionicLoading.show();
-      usersService.updateUser(user, authService.getUserIdentity().user.companyId, $stateParams.userId, $scope.file).success(function(result) {
+      usersService.updateUser(user, $scope.currentUser.currentCompany.companyId, $stateParams.userId, $scope.file).success(function(result) {
         $ionicHistory.goBack();
       }).error(function(data) {
         var alertPopup = $ionicPopup.alert({
